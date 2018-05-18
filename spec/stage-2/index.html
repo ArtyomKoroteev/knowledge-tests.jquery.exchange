@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Mocha</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../node_modules/mocha/mocha.css"/>
+</head>
+<body>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/jquery-mockjax/dist/jquery.mockjax.min.js"></script>
+<script src="../../node_modules/mocha/mocha.js"></script>
+<script src="../../node_modules/expect.js/index.js"></script>
+<script src="../../node_modules/sinon-browser-only/sinon.js"></script>
+
+<script>mocha.setup('bdd')</script>
+<script>
+  $.mockjax({
+    url: 'http://free.currencyconverterapi.com/api/v5/convert?q=UAH_USD&compact=y',
+    logging: 1,
+    responseText: {'UAH_USD': {'val': 1}}
+  })
+
+  sinon.spy($, 'getJSON')
+</script>
+
+<div id="mocha"></div>
+
+<main style="display: none;">
+  <p id="to-value"/>
+</main>
+
+<script src="../../src/jquery.exchange.js"></script>
+<script src="spec.js"></script>
+<script>
+  mocha.run()
+</script>
+</body>
+</html>

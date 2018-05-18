@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Mocha</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../node_modules/mocha/mocha.css"/>
+</head>
+<body>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/jquery-mockjax/dist/jquery.mockjax.min.js"></script>
+<script src="../../node_modules/mocha/mocha.js"></script>
+<script src="../../node_modules/expect.js/index.js"></script>
+<script src="../../node_modules/sinon-browser-only/sinon.js"></script>
+
+<script>mocha.setup('bdd')</script>
+
+<div id="mocha"></div>
+
+<main style="display: none;">
+  <select id="from-currency">
+    <option value="UAH">UAH</option>
+    <option value="USD">USD</option>
+  </select>
+  <select id="to-currency">
+    <option value="UAH">UAH</option>
+    <option value="USD">USD</option>
+  </select>
+  <button id="convert"/>
+  <p id="to-value"/>
+</main>
+
+<script src="../../src/jquery.exchange.js"></script>
+<script src="spec.js"></script>
+<script>
+  mocha.run()
+</script>
+</body>
+</html>
